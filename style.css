@@ -1,0 +1,258 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 1rem;
+  color: #ff7300;
+  border: 2px solid #ff7300;
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(255, 115, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+button:hover::before {
+  scale: 3;
+}
+
+button:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+button:active {
+  scale: 1;
+}
+
+header {
+  border-bottom: 2px solid;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
+}
+h1 {
+  font-family: "Bungee Shade", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  background-image: linear-gradient(
+    to right,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* For WebKit browsers */
+  font-size: 4vw;
+  user-select: none;
+  display: flex;
+  justify-self: center;
+  margin: 0.5rem;
+  flex-shrink: 0;
+}
+
+.player-details {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 50px;
+}
+
+input {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 115, 0, 0.2);
+  background-color: rgba(255, 115, 0, 0.2);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #ff7300;
+}
+
+.input-wrapper {
+  position: relative;
+  padding-top: 18px;
+}
+
+.player-details input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 20vw;
+  min-width: 100px;
+}
+
+.floating-label {
+  position: absolute;
+  left: 10px;
+  top: 25px;
+  font-size: 1em;
+  color: #888;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+input:not(:placeholder-shown) + .floating-label,
+input:focus + .floating-label {
+  top: 0;
+  left: 5px;
+  font-size: 0.75em;
+  color: #ff7300;
+}
+
+.container {
+  display: grid;
+  grid-template: 10vw 10vw 10vw / 10vw 10vw 10vw;
+  aspect-ratio: 1 /1;
+  margin: 3rem 2rem;
+  justify-self: center;
+  /* box-shadow: 5px 3px 20px rgb(0, 0, 0, 0.2); */
+  gap: 4px;
+  background-color: black;
+}
+
+.cell {
+  display: flex;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 1000;
+  font-size: 8vw;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+#resultMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 5vw;
+}
+
+.reset-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 8vw;
+  }
+  .container {
+    grid-template: 12vh 12vh 12vh/ 12vh 12vh 12vh;
+  }
+  .cell {
+    font-size: 10vh;
+  }
+  #result-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7vw;
+  }
+  .player-details {
+    height: 110px;
+  }
+}
