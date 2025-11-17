@@ -195,28 +195,50 @@ input:focus + .floating-label {
   color: #ff7300;
 }
 
+#boardContainer,
 .container {
   display: grid;
-  grid-template: 10vw 10vw 10vw / 10vw 10vw 10vw;
-  aspect-ratio: 1 /1;
-  margin: 3rem 2rem;
-  justify-self: center;
-  /* box-shadow: 5px 3px 20px rgb(0, 0, 0, 0.2); */
-  gap: 4px;
-  background-color: black;
+  width: min(520px, 92vw);
+  max-width: 92vmin;
+  aspect-ratio: 1 / 1;
+  margin: 2.5rem auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  place-items: stretch;
 }
 
+#boardContainer .cell,
+.container .cell,
 .cell {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 900;
+  line-height: 1;
+  font-size: clamp(40px, 10vw, 96px);
   font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-  font-weight: 1000;
-  font-size: 8vw;
-  user-select: none;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
+}
+
+.cell:nth-child(2),
+.cell:nth-child(5),
+.cell:nth-child(8) {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+}
+
+.cell:nth-child(4),
+.cell:nth-child(5),
+.cell:nth-child(6) {
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
 }
 
 #resultMessage {
@@ -240,13 +262,15 @@ input:focus + .floating-label {
   h1 {
     font-size: 8vw;
   }
+  #boardContainer,
   .container {
-    grid-template: 12vh 12vh 12vh/ 12vh 12vh 12vh;
+    width: min(360px, 92vw);
+    gap: 0;
   }
   .cell {
-    font-size: 10vh;
+    font-size: clamp(30px, 12vw, 72px);
   }
-  #result-message {
+  #resultMessage {
     display: flex;
     align-items: center;
     justify-content: center;
